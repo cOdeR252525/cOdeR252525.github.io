@@ -2,26 +2,37 @@
 <style>
 	h1{color:red;}
 </style>
-<body style="background-color:yellow  ">
-<h1>scratch games</h1>
+<body style="background-color:yellow;text-align: center;  ">
+<h1> coder252525 </h1>
 <a href="https://scratch.mit.edu/projects/227567256/#editor">my game</a><br>
 <a href="https://scratch.mit.edu/projects/227567256/#editor">maze game</a><br>
+<div>
 <img src="cat.png" width="200px" style="float:left" />
 <img src="scratch.png" width="300px">
-<div style="display:flex;width:100%;">
+</div>
+ <canvas id="myCanvas" width="80" height="300" style="background-color: blue; float:left;">
+ </canvas>
+ <div class="contolpanel" style="width:60%;">
+ <h3>control panel</h3>
+<div style="display:flex;">
 	<button onclick="setbg('green')">background green</button>
 	<button onclick="setbg('blue')">background blue</button>
 	<button onclick="setbg('yellow')">background yellow</button>
 	<br>
 </div>
-<div style="display:flex;width: 100%;">
+<div style="display:flex;">
 <button onclick="textcol('blue')">text blue</button>
 <br>
 <button onclick="textcol('red')">text red</button>
+<button onclick="textcol('green')">text green</button>
 </div>
-<div style="float:left;display:flex;">
+<div>
 <button onclick="alert('find out which is the truth!!')">my game:rules</button>
 <button onclick="alert('go to the planet!!')">maze game:rules</button>
+</div>
+<div style="display:flex;">
+<button onclick="start();">start movement</button>
+</div>
 </div>
 <script type="text/javascript">
 function setbg(col){
@@ -33,6 +44,30 @@ function textcol(col){
 	   h1Elements[i].style.color = col;
 	}
 }
+
+var ctx = myCanvas.getContext("2d");
+var y_pos = 0;
+function MyTimer () {
+	ctx.strokeStyle="yellow";
+  y_pos = y_pos + 2;
+  ctx.strokeRect(10, y_pos, 60, 60);
+  }
+ function MyTimer2 () {
+   y_pos = y_pos - 2;
+  ctx.strokeStyle="blue";
+  ctx.strokeRect(10, y_pos, 60, 60);
+ }
+ var myVar;
+function start(){
+var myVar=setInterval(MyTimer, 50);
+}
+function myStop() {
+    clearInterval(myVar);
+}
+
+
+
+
  </script>
 
 </html>
